@@ -1,0 +1,23 @@
+{
+    "name": "claudusd/patch-object",
+    "type": "library",
+    "license": "MIT",
+    "description": "Patch object",
+    "keywords": ["json", "patch"],
+    "authors": [
+        {
+            "name": "Kévin Gomez",
+            "email": "contact@kevingomez.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Claudusd\\PatchObject\\": "lib/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Entity\\": "examples/entities/", "SampleSpecs\\": "examples/specs/" }
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "symfony/property-access": "~2.3"
+    }
+}
