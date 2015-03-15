@@ -2,7 +2,7 @@
 
 namespace Claudusd\PatchObject\Operator;
 
-use Symfony\Component\PropertyAccess\PropertyAccess;
+use Claudusd\PatchObject\Executor;
 
 /**
  *
@@ -17,9 +17,9 @@ class Replace extends Operator
     /**
      * 
      */
-    public function __construct($path, $value)
+    public function __construct(Executor $executor, $path, $value)
     {
-        parent::__construct($path);
+        parent::__construct($executor, $path);
         $this->value = $value;       
     }
 
@@ -30,8 +30,7 @@ class Replace extends Operator
 
     public function execute($target)
     {
-        $accessor = PropertyAccess::createPropertyAccessor();
-        $accessor->setValue($target, $this->path, $this->value);
+        
     }
     
     /**

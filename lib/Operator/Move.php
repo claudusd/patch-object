@@ -2,7 +2,7 @@
 
 namespace Claudusd\PatchObject\Operator;
 
-use Symfony\Component\PropertyAccess\PropertyAccess;
+use Claudusd\PatchObject\Executor;
 
 /**
  *
@@ -17,22 +17,21 @@ class Move extends Operator
     /**
      * 
      */
-    public function __construct($path, $from)
+    public function __construct(Executor $executor, $path, $from)
     {
-        parent::__construct($path);
+        parent::__construct($executor, $path);
         $this->from = $from;       
     }
 
-    public function getValue()
+    public function getFrom()
     {
-        return $this->value;
+        return $this->from;
     }
 
     public function execute($target)
     {
-        $accessor = PropertyAccess::createPropertyAccessor();
-        $accessor->setValue($target, $this->path, $accessor->getValue($target, $this->from));
-        $accessor->setValue($target, $this->from, null);
+        $value = $this->executor->get($this->from, $target);
+        $this->executor->remove($this->from, $target);
     }
     
     /**

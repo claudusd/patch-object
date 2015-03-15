@@ -11,8 +11,7 @@ class Remove extends Operator
 {
     public function execute($target)
     {
-        $accessor = PropertyAccess::createPropertyAccessor();
-        $accessor->setValue($target, $this->path, null);
+        
     }
     
     /**

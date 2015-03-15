@@ -2,7 +2,7 @@
 
 namespace Claudusd\PatchObject\Operator;
 
-use Symfony\Component\PropertyAccess\PropertyAccess;
+use Claudusd\PatchObject\Executor;
 
 /**
  *
@@ -17,9 +17,9 @@ class Test extends Operator
     /**
      * 
      */
-    public function __construct($path, $from)
+    public function __construct(Executor $executor, $path, $from)
     {
-        parent::__construct($path);
+        parent::__construct($executor, $path);
         $this->from = $from;       
     }
 
