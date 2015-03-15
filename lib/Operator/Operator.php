@@ -2,11 +2,18 @@
 
 namespace Claudusd\PatchObject\Operator;
 
+use Claudusd\PatchObject\Executor;
+
 /**
  *
  */
 abstract class Operator
 {
+    /**
+     * @var Executor
+     */
+    protected $executor;
+
     /**
      * @return string
      */
@@ -16,8 +23,9 @@ abstract class Operator
      * 
      * @param string $path
      */
-    public function __construct($path)
+    public function __construct(Executor $executor, $path)
     {
+        $this->executor = $executor;
         $this->path = $path;
     }
 
