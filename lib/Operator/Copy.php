@@ -20,7 +20,7 @@ class Copy extends Operator
      */
     public function __construct(Executor $executor, $path, $from)
     {
-        parent::__construct($execurot, $path);
+        parent::__construct($executor, $path);
         $this->from = $from;       
     }
 

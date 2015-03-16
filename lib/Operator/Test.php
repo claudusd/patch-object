@@ -12,15 +12,15 @@ class Test extends Operator
     /**
      *
      */
-    protected $from;
+    protected $value;
 
     /**
      * 
      */
-    public function __construct(Executor $executor, $path, $from)
+    public function __construct(Executor $executor, $path, $value)
     {
         parent::__construct($executor, $path);
-        $this->from = $from;       
+        $this->value = $value;       
     }
 
     public function getValue()
