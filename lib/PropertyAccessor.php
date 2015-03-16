@@ -43,8 +43,9 @@ class PropertyAccessor
         return $reflectionProperty[$hash];
     }
     
-    protected function getValue($target, $property)
+    protected function &getValue($target, $property)
     {
-        return $this->getPropertyReflection($target, $property)->getValue($target);
+        $ref = &$this->getPropertyReflection($target, $property)->getValue($target);
+        return $ref;        
     }
 }
