@@ -4,7 +4,7 @@ namespace Claudusd\PatchObject;
 
 use Claudusd\PatchObject\Operator\Operator;
 
-class Patch implements \Iterator, \Countable
+class Patch implements \Iterator, \Countable, \SeekableIterator
 {
     protected $position = 0;
 
@@ -49,5 +49,13 @@ class Patch implements \Iterator, \Countable
     public function count()
     {
         return count($this->operations);
+    }
+
+    public function seek($position) 
+    {
+        if (!isset($this->operations[$position])) {
+            throw new \OutOfBoundsException("invalid seek position ($position)");
+        }
+        $this->position = $position;
     }
 }
