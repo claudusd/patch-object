@@ -2,7 +2,7 @@
 
 namespace Claudusd\PatchObject;
 
-class Getter
+class PropertyAccessor
 {
     protected $reflectionClass;
 

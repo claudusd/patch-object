@@ -2,15 +2,15 @@
 
 namespace Claudusd\PatchObject\Tests;
 
-use Claudusd\PatchObject\Getter;
+use Claudusd\PatchObject\PropertyAccessor;
 
-class GetterTest extends \PHPUnit_Framework_TestCase 
+class PropertyAccessorTest extends \PHPUnit_Framework_TestCase 
 {
     public function testGetFromObject()
     {
         $object = new PetitObject();
 
-        $getter = new Getter();
+        $getter = new PropertyAccessor();
 
         $this->assertEquals('foo', $getter->get($object, 'val'));        
     }
@@ -20,7 +20,7 @@ class GetterTest extends \PHPUnit_Framework_TestCase
         $array = [];
         $array['val'] = 'foo';
 
-        $getter = new Getter();
+        $getter = new PropertyAccessor();
  
         $this->assertEquals('foo', $getter->get($array, 'val'));
     }

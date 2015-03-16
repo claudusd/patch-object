@@ -4,24 +4,19 @@ namespace Claudusd\PatchObject;
 
 class Executor
 {
-    protected $getter;
+    protected $propertyAccessor;
 
     public function __construct()
     {
-        $this->getter = new Getter();        
+        $this->propertyAccessor = new PropertyAccessor();        
     }
     
-    public function addThing()
-    {
-
-    }
-
     public function get($path, $target)
     {
         $tmp = $target;
         foreach(explode('/', $path) as $property) {
             if (strlen($property) > 0)
-                $tmp = $this->getter->get($tmp, $property);
+                $tmp = $this->propertyAccessor->get($tmp, $property);
         }
         return $tmp;
     }
